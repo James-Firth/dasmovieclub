@@ -1,7 +1,7 @@
 # general configuration
 url: http://dasmovie.club
 baseurl: ''
-
+destination: docs/
 # compass configuration
 compass:
   # an avatar or logo (optional)
