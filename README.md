@@ -1,2 +1,1 @@
-# dasmovieclub
-The Drinks And Snacks Movie Club
+# Drinks & Snacks Movie Club
