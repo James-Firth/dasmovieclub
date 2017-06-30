@@ -3,12 +3,17 @@ const mongoose = require('mongoose');
 const themeSchema = new mongoose.Schema({
   name: {
     type: String,
-    unique: true
+    unique: true,
+    required: true,
   },
-  description: String,
+  description: {
+    type: String,
+    required: true,
+  },
   submitter: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
+    required: false
   },
   winner: {
     type: Date,
