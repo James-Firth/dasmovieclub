@@ -4,15 +4,15 @@ services:
     image: mongo:3.4
   web:
     build: .
+    image: dasmovieclub:latest
     ports:
      - "3000:3000"
     environment:
-     - MONGODB_URI=mongodb://mongo:27017/test 
+     - MONGODB_URI=mongodb://mongo:27017/test
     links:
-     - mongo 
-    depends_on: 
-     - mongo 
+     - mongo
+    depends_on:
+     - mongo
     volumes:
      - .:/starter
      - /starter/node_modules
-     
