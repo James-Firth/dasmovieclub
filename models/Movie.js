@@ -10,6 +10,11 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  theme: {
+    type: mongoose.Scheme.Types.ObjectId,
+    ref: 'Theme',
+    required: true
+  },
   submitter: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
