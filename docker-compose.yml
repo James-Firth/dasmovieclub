@@ -2,6 +2,8 @@ version: '2'
 services:
   mongo:
     image: mongo:3.4
+    volumes:
+      - ./db_data:/data/db
   web:
     build: .
     image: dasmovieclub:latest
