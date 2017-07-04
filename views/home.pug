@@ -1,25 +1,30 @@
 extends layout
 
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
+  h1 Drinks &amp; Snacks
+  p.lead The after work movie club
   hr
   .row
     .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      h2 Current Vote, etc
+      p This could hold the link to the current vote?
+      img.poster(src=votePoster)
+      p
+        a.btn.btn-default(href='#', role='button') View details »
+    .col-sm-6
+      h2 Latest Movie Club
+      p Info about the latest movie club could go here?
       p
         a.btn.btn-default(href='#', role='button') View details »
     .col-sm-6
       h2 Calendar
+      a(href="https://calendar.google.com/calendar/embed?src=3mp7vds36mmi0nldev3kstr3ic%40group.calendar.google.com&ctz=America/Winnipeg") Full-sized calendar
+      br
       iframe(src='https://calendar.google.com/calendar/embed?showTitle=0&showNav=0&showPrint=0&showCalendars=0&mode=AGENDA&height=400&wkst=1&bgcolor=%23ffffcc&src=3mp7vds36mmi0nldev3kstr3ic%40group.calendar.google.com&color=%23691426&ctz=America%2FWinnipeg', style='border-width:0', height='400', frameborder='0', scrolling='no')
     .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      h2 Links
+      p Useful Links:
       p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+        a.btn.btn-default(href="https://drive.google.com/drive/folders/0Bwe9mtdZ7AWXYXZZQkxNNWpUTG8") Presentation Archive
+        a.btn.btn-default(href="https://calendar.google.com/calendar/embed?src=3mp7vds36mmi0nldev3kstr3ic%40group.calendar.google.com&ctz=America/Winnipeg") Calendar
+        
