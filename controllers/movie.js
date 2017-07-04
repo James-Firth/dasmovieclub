@@ -122,3 +122,7 @@ exports.postMovieForm = (req, res) => {
     return res.redirect('/movies/submit');
   })
 };
+
+exports.updateMovie = (name, update) => {
+  return Movie.update({name:name}, update);
+}

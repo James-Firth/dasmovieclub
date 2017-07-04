@@ -15,7 +15,7 @@
           a(href='/') Home
         li.dropdown(class=(title == 'Movies') ? 'active' : undefined)
           a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            | Movies 
+            | Movies
             span.caret
           ul.dropdown-menu
             li
@@ -24,7 +24,7 @@
               a(href='/movies/submit') Submit Movie
         li(class=(title == 'Themes') ? 'active' : undefined)
           a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            | Themes 
+            | Themes
             span.caret
           ul.dropdown-menu
             li
@@ -33,6 +33,8 @@
               a(href='/themes/submit') Submit Theme
         li(class=(title == 'Attributions') ? 'active' : undefined)
           a(href='/attributions') Attributions
+        li(class=(title == 'Go To Poll') ? 'active' : undefined)
+          a(href='/poll') Go To Poll
         li
           a(href='/status') Status
       ul.nav.navbar-nav.navbar-right
