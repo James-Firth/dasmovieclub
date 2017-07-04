@@ -13,14 +13,24 @@
       ul.nav.navbar-nav
         li(class=(title == 'Home') ? 'active' : undefined)
           a(href='/') Home
-        li(class=(title == 'Movies') ? 'active' : undefined)
-          a(href='/movies/') Movies
-        li(class=(title == 'Movie Submissions') ? 'active' : undefined)
-          a(href='/movies/submit') Movie Submissions
+        li.dropdown(class=(title == 'Movies') ? 'active' : undefined)
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+            | Movies 
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='/movies/') Movies
+            li
+              a(href='/movies/submit') Submit Movie
         li(class=(title == 'Themes') ? 'active' : undefined)
-          a(href='/themes') Themes
-        li(class=(title == 'Theme Submission') ? 'active' : undefined)
-          a(href='/themes/submit') Theme Submission
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+            | Themes 
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='/themes/') Themes
+            li
+              a(href='/themes/submit') Submit Theme
         li(class=(title == 'Attributions') ? 'active' : undefined)
           a(href='/attributions') Attributions
         li
