@@ -5,6 +5,7 @@
 
 @import "themes/default/default";
 
+
 // Scaffolding
 // -------------------------
 
@@ -67,4 +68,28 @@ textarea {
 
 .fa {
   margin-right: 6px;
+}
+
+
+/////// Misc. If too big, split into own file/folder
+#logo {
+  height: 100%;
+  display: inline-block;
+}
+#tmdb-logo {
+  height: 3em;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.suggestion {
+  margin: 1em;
+}
+
+.link-wrapper {
+  display: inline-block;
 }
