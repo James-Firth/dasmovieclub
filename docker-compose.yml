@@ -6,7 +6,6 @@ services:
       - ./db_data:/data/db
   web:
     build: .
-    image: dasmovieclub:latest
     ports:
      - "3000:3000"
     environment:
