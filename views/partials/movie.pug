@@ -1,0 +1,22 @@
+.suggestion.movie
+  if movie.poster_path
+    img(src=posterBase + "/" + movie.poster_path)
+  else
+    img(src="/imgs/poster_placeholder.png")
+    
+  .name-wrapper
+    .name
+      | #{movie.name} &nbsp;
+  .link-wrapper
+    .link
+      if movie.moviedb_id
+        a(href='https://www.themoviedb.org/movie/' + movie.moviedb_id) Movie DB Page
+      else
+        | No Link
+  .themes
+    if movie.theme
+      span.label.label-info
+        i.fa.fa-tags
+        =movie.theme.name
+br
+br

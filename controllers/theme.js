@@ -7,7 +7,7 @@ exports.getThemes = (req, res) => {
   Theme.find({})
   .populate('submitter')
   .exec()
-  .then((themes, b, c) => {
+  .then((themes) => {
     res.render('themes', {
       title: 'Theme',
       themes
@@ -18,3 +18,15 @@ exports.getThemes = (req, res) => {
     return res.redirect('/');
   })
 };
+
+exports.listThemes = (req, res) => {
+  Theme.find({})
+  .populate('submitter')
+  .exec()
+  .then((themes) => {
+    return res.json(themes);
+  })
+  .catch((err) => {
+    return res.status(500).send(err);
+  })
+}

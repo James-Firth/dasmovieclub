@@ -10,6 +10,11 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  theme: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Theme',
+    required: true
+  },
   submitter: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -20,6 +25,7 @@ const movieSchema = new mongoose.Schema({
     default: null
   }
 }, { timestamps: true });
+
 
 const Movie = mongoose.model('Movie', movieSchema);
 

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .page-header
+    h3 Suggested Movies
+
+  .suggestions
+    for movie in movies
+      include partials/movie
+          
+        
