@@ -99,8 +99,6 @@ exports.postMovieForm = (req, res) => {
     return res.redirect('/movies');
   }
 
-  console.log("Stuff given");
-  console.log(req.body);
   const suggestedMovieOptions = {
     name: req.body.name,
     moviedb_id: req.body.moviedb_id || null,
@@ -108,19 +106,11 @@ exports.postMovieForm = (req, res) => {
     submitter: req.user || null,
   };
 
-  console.log(suggestedMovieOptions);
   const suggestedMovie = new Movie(suggestedMovieOptions);
   suggestedMovie.save()
   .then((stuff) => {
-    console.log("past Movies");
-    Movie.find({}).exec()
-    .then((thing) => {
-      console.log("found:");
-      console.log(thing);
-    })
     req.flash('success', { msg: `Movie "${suggestedMovie.name}" has been suggested!` });
     return res.redirect('/movies');
-
   })
   .catch((err) => {
     req.flash('errors', err);
