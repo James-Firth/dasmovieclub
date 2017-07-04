@@ -27,7 +27,12 @@ exports.getMovies = (req, res) => {
         return unirest.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIEDB_KEY}&include_adult=false&query=${encodeURI(movie.name)}`)
         .end((response) => {
           if (response.ok) {
-            resolve(Object.assign(movie, response.body));
+            let results = response.body.results;
+            let movieData = {};
+            if (Array.isArray(results)) {
+              movieData = results[0];
+            }
+            resolve(Object.assign(movie, movieData));
           }
           return reject(response.error);
         })
