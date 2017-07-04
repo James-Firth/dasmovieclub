@@ -32,7 +32,7 @@ exports.listThemes = (req, res) => {
 }
 
 exports.findMostRecentWinningTheme = () => {
-  Theme.find({winner: {$ne:null}})
+  return Theme.find({winner: {$ne:null}})
   .then((themes) => {
     var mostRecentTime = 0;
     var mostRecentWinningTheme = null;

@@ -2,6 +2,7 @@ const http = require('http');
 var rp = require('request-promise');
 const Poll = require('../models/Poll');
 const Theme = require('../models/Theme');
+const Movie = require('../models/Movie');
 const ThemeController = require('./theme');
 const MovieController = require('./movie');
 
@@ -26,6 +27,7 @@ exports.createPoll = (names, isThemePoll) => {
 
   rp(options)
   .then((pollData) => {
+    console.log(pollData);
     return Poll.create({strawpoll_id:pollData.id, is_theme_poll:isThemePoll});
   })
   .catch((err) => {
@@ -53,11 +55,13 @@ exports.createThemePoll = () => {
 };
 
 exports.createMoviePoll = () => {
-  ThemeController.getMostRecentThemeWinner()
+  ThemeController.findMostRecentWinningTheme()
   .then((theme) => {
-    return Movie.find({theme: theme.id});
+    console.log(theme);
+    return Movie.find({theme: theme});
   })
   .then((movies) => {
+    console.log(movies);
     var movieNames = [];
 
     movies.forEach(function(movie) {
@@ -70,6 +74,7 @@ exports.createMoviePoll = () => {
     exports.createPoll(movieNames, false);
   })
   .catch((error) => {
+    console.log(error);
     return error;
   });
 };
@@ -77,7 +82,7 @@ exports.createMoviePoll = () => {
 exports.goToCurrentPoll = (req, res) => {
   Poll.find({complete:false})
   .then((polls) => {
-    if(polls.length > 0) {
+    if(polls != null && polls.length > 0) {
       var mostRecentPollIndex = 0;
       if(polls.length > 1) {
         var mostRecentPollTime = 0;
@@ -94,6 +99,7 @@ exports.goToCurrentPoll = (req, res) => {
 
       res.redirect('https://www.strawpoll.me/'+curPoll.strawpoll_id);
     } else {
+      req.flash('message', 'There is no poll currently running.');
       res.redirect('/');
     }
   })
@@ -147,6 +153,7 @@ exports.getPollWinner = () => {
 
       return Poll.update({strawpoll_id:poll.strawpoll_id}, {complete:true})
       .then(() => {
+        console.log("Winner: " + winnerName);
         if(poll.is_theme_poll) {
           return ThemeController.updateTheme(winnerName, {winner: new Date()});
         } else {
