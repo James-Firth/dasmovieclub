@@ -9,6 +9,11 @@ const pollSchema = new mongoose.Schema({
   is_theme_poll: {
     type: Boolean,
     required: true,
+  },
+  complete: {
+    type: Boolean,
+    default: false,
+    required: true
   }
 }, { timestamps: true });
 

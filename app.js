@@ -36,6 +36,7 @@ const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const themeController = require('./controllers/theme');
 const themeSubmissionController = require('./controllers/themeSubmission');
+const pollController = require('./controllers/poll');
 
 /**
  * API keys and Passport configuration.
@@ -134,6 +135,10 @@ app.post('/contact', contactController.postContact);
 app.get('/themes', themeController.getThemes);
 app.get('/themes/submit', themeSubmissionController.getThemeForm);
 app.post('/themes/submit', themeSubmissionController.postThemeForm);
+app.get('/poll', pollController.goToCurrentPoll);
+app.get('/poll/createthemepoll', pollController.createThemePoll);
+app.get('/poll/createmoviepoll', pollController.createMoviePoll);
+app.get('/poll/winner', pollController.getPollWinner);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);

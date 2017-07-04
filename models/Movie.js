@@ -11,7 +11,7 @@ const movieSchema = new mongoose.Schema({
     required: false,
   },
   theme: {
-    type: mongoose.Scheme.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Theme',
     required: true
   },
