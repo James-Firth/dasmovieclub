@@ -62,6 +62,26 @@ exports.getMovies = (req, res) => {
   })
 };
 
+exports.findMostRecentWinningMovie = () => {
+  return Movie.find({winner: {$ne:null}})
+  .then((movies) => {
+    var mostRecentTime = 0;
+    var mostRecentWinningMovie = null;
+
+    movies.forEach(function(movie){
+      var curMovieTime = movie.winner.getTime();
+
+      if(curMovieTime > mostRecentTime) {
+        mostRecentTime = curMovieTime;
+        mostRecentWinningMovie = movie;
+      }
+    });
+    console.log(mostRecentWinningMovie);
+
+    return mostRecentWinningMovie;
+  });
+}
+
 exports.listMovies = (req, res) => {
   Movie.find({})
   .populate('submitter')
